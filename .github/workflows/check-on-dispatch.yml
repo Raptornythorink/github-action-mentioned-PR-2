@@ -1,0 +1,16 @@
+name: Check mentioned PRs on dispatch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  task-list-checker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run script
+        uses: ./check-on-dispatch
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          upstream-github-token: ${{ secrets.UPSTREAM_GITHUB_TOKEN }}
+          upstream-repository: Raptornythorink/github-action-mentioned-PR-1

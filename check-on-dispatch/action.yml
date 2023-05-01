@@ -1,0 +1,17 @@
+name: 'Check Mentioned PRs'
+description: 'Checks if the PRs mentioned in the body have been merged'
+
+inputs:
+  github-token:
+    description: "Token for the current repository"
+    required: true
+  upstream-github-token:
+    description: "Token for the upstream repository"
+    required: true
+  upstream-repository:
+    description: "Link to the repository, with the 'owner/name' format"
+    required: true
+
+runs:
+  using: 'node16'
+  main: '../dist/check-on-dispatch/index.js'
